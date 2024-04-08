@@ -1,3 +1,4 @@
+package br.com.deoo.gym.deoo_gym.entity;
 public class User{
     private int id;
     private String name;
@@ -5,7 +6,7 @@ public class User{
 
 
 
-    public User(int id, String name, PhysicalCharacteristic characteristic) {
+    public User(int id, String name, PhysicalCharacteristics characteristic) {
         setId(id);
         setName(name);
         setCharacteristic(characteristic);
@@ -27,11 +28,11 @@ public class User{
         this.name = name;
     }
 
-    public PhysicalCharacteristic getCharacteristic() {
+    public PhysicalCharacteristics getCharacteristic() {
         return characteristic;
     }
 
-    public void setCharacteristic(PhysicalCharacteristic characteristic) {
+    public void setCharacteristic(PhysicalCharacteristics characteristic) {
         this.characteristic = characteristic;
     }
 }

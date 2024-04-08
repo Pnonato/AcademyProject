@@ -1,3 +1,7 @@
+package br.com.deoo.gym.deoo_gym.entity;
+
+import java.time.LocalDate;
+
 public class Training{
     private String A;
     private String B;

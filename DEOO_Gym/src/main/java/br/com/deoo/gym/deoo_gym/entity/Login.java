@@ -1,3 +1,5 @@
+package br.com.deoo.gym.deoo_gym.entity;
+
 public class Login {
     private User user;
     private String password;

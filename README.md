@@ -1,2 +1,2 @@
 # AcademyProject
-Repositorio destinado ao trabalho de DOO - Clean Architecture
+Repositório destinado ao trabalho de DOO - Clean Architecture

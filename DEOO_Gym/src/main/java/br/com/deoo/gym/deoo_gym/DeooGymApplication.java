@@ -10,4 +10,6 @@ public class DeooGymApplication {
 		SpringApplication.run(DeooGymApplication.class, args);
 	}
 
+
+		//teste commit
 }

@@ -2,7 +2,6 @@ package br.com.deoo.gym.deoo_gym.entity;
 
 public class PhysicalCharacteristics {
 
-        private User user;
         private double weight;
         private double height;
         private String gender;
@@ -10,8 +9,7 @@ public class PhysicalCharacteristics {
         private double IMC;
 
 
-        public PhysicalCharacteristics(User user, double weight, double height, String gender, String physicalGoal, double IMC) {
-            this.user = user;
+        public PhysicalCharacteristics( double weight, double height, String gender, String physicalGoal, double IMC) {
             this.weight = weight;
             this.height = height;
             this.gender = gender;
@@ -19,13 +17,12 @@ public class PhysicalCharacteristics {
             this.IMC = IMC;
         }
 
-        public User getUser() {
-            return user;
+        //uso do this para deixar claro que as referencias estao sendo feitas a partir da classe atual
+        public double calculateIMC() {
+            this.IMC = this.weight / ((this.height/100) * (this.height/100));
+            return this.IMC;
         }
 
-        public void setUser(User user) {
-            this.user = user;
-        }
 
         public double getWidth() {
             return weight;

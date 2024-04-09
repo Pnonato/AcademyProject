@@ -3,16 +3,16 @@ package br.com.deoo.gym.deoo_gym.entity;
 public class PhysicalCharacteristics {
 
         private User user;
-        private double width;
+        private double weight;
         private double height;
         private String gender;
         private String physicalGoal; // Sugerível enum
         private double IMC;
 
 
-        public PhysicalCharacteristics(User user, double width, double height, String gender, String physicalGoal, double IMC) {
+        public PhysicalCharacteristics(User user, double weight, double height, String gender, String physicalGoal, double IMC) {
             this.user = user;
-            this.width = width;
+            this.weight = weight;
             this.height = height;
             this.gender = gender;
             this.physicalGoal = physicalGoal;
@@ -28,11 +28,11 @@ public class PhysicalCharacteristics {
         }
 
         public double getWidth() {
-            return width;
+            return weight;
         }
 
-        public void setWidth(double width) {
-            this.width = width;
+        public void setWidth(double weight) {
+            this.weight = weight;
         }
 
         public double getHeight() {

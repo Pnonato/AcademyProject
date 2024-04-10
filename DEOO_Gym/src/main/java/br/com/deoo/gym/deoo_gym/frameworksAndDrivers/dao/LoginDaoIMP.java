@@ -84,6 +84,7 @@ public class LoginDaoIMP implements LoginDAO {
         return false; // Retorna falso se o usuário não for encontrado
     }
 
+
     // Método para excluir um usuário por ID
     public boolean deleteUser(int id) {
         for (User u : users) {

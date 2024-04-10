@@ -1,22 +1,14 @@
 package br.com.deoo.gym.deoo_gym.entity;
 
+import java.util.List;
+
 public class Login {
-    private User user;
-    private String password;
-    // Se for passar os slides a limpo, não faz muito sentido ter User id, User name ou etc, pq são váriaveis
-    // e não entidades
+    private List<User> users;
 
 
-    public Login(User user, String password) {
-        this.user = user;
-        this.password = password;
+
+    public Login() {
+
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

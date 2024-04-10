@@ -18,6 +18,7 @@ public class UserDaoIMP implements UserDAO{
             instance = new UserDaoIMP();
         }
         return instance;
+
     }
 
     @Override
@@ -55,4 +56,5 @@ public class UserDaoIMP implements UserDAO{
        }
        return null; //se não achar o usuario
     }
+    // Poderiamos usar o try catch para evitar erros de exçeção
 }

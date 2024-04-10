@@ -4,12 +4,14 @@ public class User{
     private String name;
     private String email;
     private String senha;
-
+    private int count;
     private PhysicalCharacteristics characteristic;
 
-
-    public User(int id, String name, String email, String senha, PhysicalCharacteristics characteristic) {
-        this.id = id;
+    private User(){
+        this.id = ++count;
+    }
+    public User(String name, String email, String senha, PhysicalCharacteristics characteristic) {
+        this();
         this.name = name;
         this.email = email;
         this.senha = senha;

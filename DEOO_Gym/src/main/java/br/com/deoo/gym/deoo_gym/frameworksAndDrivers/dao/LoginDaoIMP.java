@@ -1,19 +1,22 @@
 package br.com.deoo.gym.deoo_gym.frameworksAndDrivers.dao;
 
-import br.com.deoo.gym.deoo_gym.entity.Login;
+
 import br.com.deoo.gym.deoo_gym.entity.User;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 
 public class LoginDaoIMP implements LoginDAO {
 
 
     private static LoginDaoIMP instance;
-    private List<User> users;
+    private Set<User> users;
 
     public LoginDaoIMP() {
-        users = new ArrayList<>();
+        users = new HashSet<>() {
+        };
     }
 
     public static LoginDaoIMP getInstance() {
@@ -93,13 +96,22 @@ public class LoginDaoIMP implements LoginDAO {
 
     // Método para buscar um usuário por ID em uma lista específica de usuários
     public User findUser(int id, List<User> users) {
-        for (User t : users) {
-            if (t.getId() == id) {
-                return t; // Retorna o usuário se encontrado na lista especificada
+
+            if (users == null) {
+                throw new NullPointerException("Lista de usuários é nula.");
             }
-        }
-        return null; // Retorna null se o usuário não for encontrado na lista especificada
+
+            User user = null;
+            for (User u : users) {
+                if (u.getId() == id) {
+                    user = u;
+                    break; // Sai do loop assim que o usuário for encontrado
+                }
+            }
+
+            return user;
     }
+
 
     private boolean verificaEmail(String email) {
         boolean verifica = true;

@@ -1,4 +1,4 @@
-package br.com.deoo.gym.deoo_gym.interfaceAdaptors.dao;
+package br.com.deoo.gym.deoo_gym.frameworksAndDrivers.dao;
 
 public interface DietDAO {
 //

@@ -60,4 +60,6 @@ public class UserDTO {
     public void setCharacteristic(PhysicalCharacteristics characteristic) {
         this.characteristic = characteristic;
     }
+
+
 }

@@ -113,6 +113,10 @@ public class LoginDaoIMP implements LoginDAO {
             return user;
     }
 
+    @Override
+    public List<User> getAll() {
+        return (List<User>) instance;
+    }
 
     private boolean verificaEmail(String email) {
         boolean verifica = true;

@@ -17,7 +17,9 @@ public class PhyCharacteristicsDaoIMP {
     }
 
     public void addCharacteristics(PhysicalCharacteristics characteristics) {
-        characteristicsList.add(characteristics);
+        if(characteristics != null){
+            characteristicsList.add(characteristics);
+        }
     }
 
     public void updateCharacteristics(PhysicalCharacteristics updatedCharacteristics) {

@@ -15,6 +15,7 @@ public interface LoginDAO {
     boolean deleteUser(String email, String senha);
     boolean deleteUser(int id);
     User findUser(int id, List<User> listaDeUsers);
+    List<User> getAll();
 
 
 

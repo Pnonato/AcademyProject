@@ -37,9 +37,9 @@ public class LoginDaoIMP implements LoginDAO {
     }
 
     @Override    // Método para buscar um usuário por email e senha
-    public boolean findUser(String email, String senha) {
+    public boolean findUser(String email, String password) {
         for (User usuario : users) {
-            if (usuario.getEmail().equals(email) && usuario.getSenha().equals(senha)) {
+            if (usuario.getEmail().equals(email) && usuario.getPassword().equals(password)) {
                 return true; // Retorna verdadeiro se encontrar o usuário
             }
         }
@@ -57,11 +57,11 @@ public class LoginDaoIMP implements LoginDAO {
     }
 
     // Método para atualizar a senha de um usuário
-    public boolean editUser(String email, String senha, String novaSenha, String novoE) {
+    public boolean editUser(String email, String password, String novaSenha, String novoE) {
         for (User u : users) {
-            if (u.getEmail().equals(email) && u.getSenha().equals(senha)) {
+            if (u.getEmail().equals(email) && u.getPassword().equals(password)) {
                 if (verificaEmail(novoE)) {
-                    u.setSenha(novaSenha); // Atualiza a senha do usuário
+                    u.setPassword(novaSenha); // Atualiza a senha do usuário
                     u.setEmail(novoE);
                     return true;
                 } else {
@@ -75,9 +75,9 @@ public class LoginDaoIMP implements LoginDAO {
     }
 
     // Método para excluir um usuário por email e senha
-    public boolean deleteUser(String email, String senha) {
+    public boolean deleteUser(String email, String password) {
         for (User u : users) {
-            if (u.getEmail().equals(email) && u.getSenha().equals(senha)) {
+            if (u.getEmail().equals(email) && u.getPassword().equals(password)) {
                 return users.remove(u); // Remove o usuário da lista e retorna verdadeiro
             }
         }

@@ -3,19 +3,22 @@ public class User{
     private int id;
     private String name;
     private String email;
-    private String senha;
+    private String password;
     private int count;
     private PhysicalCharacteristics characteristic;
+
+    private Training training;
 
     private User(){
         this.id = ++count;
     }
-    public User(String name, String email, String senha, PhysicalCharacteristics characteristic) {
+    public User(String name, String email, String password, PhysicalCharacteristics characteristic, Training training) {
         this();
         this.name = name;
         this.email = email;
-        this.senha = senha;
+        this.password = password;
         this.characteristic = characteristic;
+        this.training = training;
     }
 
     public String getEmail() {
@@ -26,12 +29,12 @@ public class User{
         this.email = email;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getId() {
@@ -56,5 +59,13 @@ public class User{
 
     public void setCharacteristic(PhysicalCharacteristics characteristic) {
         this.characteristic = characteristic;
+    }
+
+    public Training getTraining() {
+        return training;
+    }
+
+    public void setTraining(Training training) {
+        this.training = training;
     }
 }

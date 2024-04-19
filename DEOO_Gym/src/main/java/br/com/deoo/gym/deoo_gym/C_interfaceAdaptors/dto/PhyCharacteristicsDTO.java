@@ -2,7 +2,6 @@ package br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.dto;
 
 public class PhyCharacteristicsDTO{
 
-
     private String gender;
     private String physicalGoal;
     private double IMC;
@@ -33,8 +32,8 @@ public class PhyCharacteristicsDTO{
     }
 
     @Override
-    public String toString() {
-        return "monte um treino para uma pessoa do sexo "
+    public  String toString() {
+        return "monte um treino A, B, C,  para uma pessoa do sexo "
                 + gender +
                 "com o imc"
                 + IMC +

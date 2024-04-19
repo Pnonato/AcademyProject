@@ -1,25 +1,30 @@
 package br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.dto;
 
 import br.com.deoo.gym.deoo_gym.A_entity.PhysicalCharacteristics;
+import br.com.deoo.gym.deoo_gym.A_entity.Training;
 
 public class UserDTO {
     private int id;
     private String name;
     private String email;
-    private String senha;
+    private String password;
     private int count;
     private PhysicalCharacteristics characteristic;
+
+    private Training training;
 
     private UserDTO(){
         this.id = ++count;
     }
-    public UserDTO(String name, String email, String senha, PhysicalCharacteristics characteristic) {
+    public UserDTO(String name, String email, String password, PhysicalCharacteristics characteristic, Training training) {
         this();
         this.name = name;
         this.email = email;
-        this.senha = senha;
+        this.password = password;
         this.characteristic = characteristic;
+        this.training = training;
     }
+
 
     public String getEmail() {
         return email;
@@ -29,12 +34,12 @@ public class UserDTO {
         this.email = email;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setpPassword(String password) {
+        this.password = password;
     }
 
     public int getId() {
@@ -61,5 +66,12 @@ public class UserDTO {
         this.characteristic = characteristic;
     }
 
+    public Training getTraining() {
+        return training;
+    }
+
+    public void setTraining(Training training) {
+        this.training = training;
+    }
 
 }

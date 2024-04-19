@@ -2,7 +2,8 @@ package br.com.deoo.gym.deoo_gym.C_interfaceAdaptors;
 import br.com.deoo.gym.deoo_gym.A_entity.Contents; //isso aq nao pode ser feito pq viola o principio de camadas
 //vou tirar dps, deixei assim so pra facilitar
 
-public class APIRequest{    private Contents contents;
+public class APIRequest{
+    private Contents contents;
 
     public APIRequest(String prompt) {
         this.contents = new Contents("user", prompt);

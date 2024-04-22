@@ -8,16 +8,17 @@ public class Main {
 
         do {
             System.out.println("Escolha uma opção:");
-            System.out.println("1. Tal coisa");
-            System.out.println("2. Outra coisa");
-            System.out.println("3. Sair");
+            System.out.println("1. Cadastrar um usuário");
+            System.out.println("2. Realizar login");
+            System.out.println("3. ");
 
             System.out.print("Opção: ");
             opcao = scanner.nextInt();
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Você optou a opção 1 - Tal coisa");
+                    System.out.println("Você escolheu a opção 1 - Cadastrar um usuário");
+
 
                     break;
                 case 2:

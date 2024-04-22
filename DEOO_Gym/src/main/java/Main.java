@@ -17,7 +17,7 @@ public class Main {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Você escolheu a opção 1 - Tal coisa");
+                    System.out.println("Você optou a opção 1 - Tal coisa");
 
                     break;
                 case 2:

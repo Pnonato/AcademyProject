@@ -56,9 +56,6 @@ public class PhysicalCharacteristics {
         this.physicalGoal = physicalGoal;
     }
 
-    public double getIMC() {
-        return IMC;
-    }
 
     public void setIMC(double IMC) {
         this.IMC = IMC;

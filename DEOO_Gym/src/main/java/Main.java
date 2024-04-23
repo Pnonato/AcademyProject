@@ -1,44 +1,56 @@
-import java.util.Scanner;
+import br.com.deoo.gym.deoo_gym.A_entity.User;
+import br.com.deoo.gym.deoo_gym.D_frameworksAndDrivers.dao.LoginDaoIMP;
 
 public class Main {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        int opcao;
 
+        User testeUsuario = new User("Rivaldo", "rivaldoReiDelas@gmail.com", "xlr8");
+        MenuOptions teste = Util.menu();
         do {
-            System.out.println("Escolha uma opção:");
-            System.out.println("1. Cadastrar um usuário");
-            System.out.println("2. Realizar login");
-            System.out.println("3. ");
 
-            System.out.print("Opção: ");
-            opcao = scanner.nextInt();
+            switch (teste) {
+                case ADD_USER:
+                    if (LoginDaoIMP.getInstance().addUser(testeUsuario)){
+                        System.out.println("Passou");
 
-            switch (opcao) {
-                case 1:
-                    System.out.println("Você escolheu a opção 1 - Cadastrar um usuário");
-
+                    }else{
+                        System.out.println("Nao passou");
+                    }
 
                     break;
-                case 2:
-                    System.out.println("Você escolheu a opção 2 - Outra coisa");
-
+                case ADD_TRAINING:
+                    System.out.println(teste.getDescription());
                     break;
-                case 3:
-                    System.out.println("Saindo...");
+                case ADD_DIET:
+                    System.out.println(teste.getDescription());
+                    break;
+                case ADD_PHYSICAL_CHARACTERISTICS:
+                    System.out.println(teste.getDescription());
+                    break;
+                case SHOW_USERS:
+                    System.out.println(teste.getDescription());
+                    break;
+                case SHOW_TRAININGS:
+                    System.out.println(teste.getDescription());
+                    break;
+                case SHOW_DIETS:
+                    System.out.println(teste.getDescription());
+                    break;
+                case SHOW_PHYSICAL_CHARACTERISTICS:
+                    System.out.println(teste.getDescription());
+                    break;
+                case EXIT:
+                    System.out.println(teste.getDescription());
                     break;
                 default:
-                    System.out.println("Opção inválida! Tente novamente.");
+                    System.out.println(teste.getDescription());
                     break;
             }
-        } while (opcao != 3);
-
-        scanner.close();
-    }
-
-    public static class Utils {
+        } while (teste.getValue() != 9);
 
 
     }
+
+
 }

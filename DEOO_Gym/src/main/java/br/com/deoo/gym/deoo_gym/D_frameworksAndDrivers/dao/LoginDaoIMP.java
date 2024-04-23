@@ -3,23 +3,22 @@ package br.com.deoo.gym.deoo_gym.D_frameworksAndDrivers.dao;
 
 import br.com.deoo.gym.deoo_gym.A_entity.User;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 public class LoginDaoIMP implements LoginDAO {
 
 
     private static LoginDaoIMP instance;
-    private Set<User> users;
+    private List<User> users;
 
     public LoginDaoIMP() {
-        users = new HashSet<>() {
+        users = new ArrayList<>() {
         };
     }
 
     public static LoginDaoIMP getInstance() {
+
         return instance == null ? new LoginDaoIMP() : instance;
     }
 
@@ -35,6 +34,15 @@ public class LoginDaoIMP implements LoginDAO {
         // Adiciona o usuário à lista e retorna verdadeiro
         return users.add(usuario);
     }
+//    public boolean addUser(String name, String password, String email){
+//        for (User u : users) {
+//            if (u.getEmail().equals(email)) {
+//                return false; // Retorna falso se o email já estiver em uso
+//            }
+//        }
+//        // Adiciona o usuário à lista e retorna verdadeiro
+//        return users.add(new User(name, email, password));
+//    }
 
     @Override    // Método para buscar um usuário por email e senha
     public boolean findUser(String email, String password) {

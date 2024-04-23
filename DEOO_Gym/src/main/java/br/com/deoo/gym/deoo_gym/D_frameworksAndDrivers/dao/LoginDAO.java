@@ -18,6 +18,9 @@ public interface LoginDAO {
     List<User> getAll();
 
 
+   // boolean addUser(String name, String password, String email);
+
+
 
 
 

@@ -37,4 +37,8 @@ public class Main {
         scanner.close();
     }
 
+    public static class Utils {
+
+
     }
+}

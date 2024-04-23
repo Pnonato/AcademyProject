@@ -25,6 +25,13 @@ public class UserDTO {
         this.training = training;
     }
 
+    public UserDTO(String name, String email, String password) {
+        this();
+        this.name = name;
+        this.email = email;
+        this.password = password;
+
+    }
 
     public String getEmail() {
         return email;

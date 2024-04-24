@@ -1,22 +1,32 @@
 import br.com.deoo.gym.deoo_gym.A_entity.User;
-import br.com.deoo.gym.deoo_gym.D_frameworksAndDrivers.dao.LoginDaoIMP;
+import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.LoginController;
+import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.view.ConsoleLoginView;
+import java.util.Scanner;
+
+
 
 public class Main {
     public static void main(String[] args) {
 
-
+        ConsoleLoginView view = new ConsoleLoginView();
+        LoginController controller = new LoginController(view);
         User testeUsuario = new User("Rivaldo", "rivaldoReiDelas@gmail.com", "xlr8");
-        MenuOptions teste = Util.menu();
-        do {
+        User testeUsuario2 = new User("Genova", "rivaldoReiDelas12@gmail.com", "xlr8");
+        User testeUsuario3 = new User("Beta", "rivaldoReiDelas123@gmail.com", "xlr8");
 
+        controller.addUser(testeUsuario);
+        controller.addUser(testeUsuario2);
+        controller.addUser(testeUsuario3);
+
+        MenuOptions teste = Util.menu();
+
+        Scanner busca = new Scanner(System.in);
+        teste = MenuOptions.valueOf(busca.nextInt());
+
+        do {
             switch (teste) {
                 case ADD_USER:
-                    if (LoginDaoIMP.getInstance().addUser(testeUsuario)){
-                        System.out.println("Passou");
-
-                    }else{
-                        System.out.println("Nao passou");
-                    }
+                    controller.addUser(testeUsuario);
 
                     break;
                 case ADD_TRAINING:
@@ -29,7 +39,7 @@ public class Main {
                     System.out.println(teste.getDescription());
                     break;
                 case SHOW_USERS:
-                    System.out.println(teste.getDescription());
+                    controller.showAll();
                     break;
                 case SHOW_TRAININGS:
                     System.out.println(teste.getDescription());
@@ -47,7 +57,7 @@ public class Main {
                     System.out.println(teste.getDescription());
                     break;
             }
-        } while (teste.getValue() != 9);
+        } while (teste.getValue() < 0 || teste.getValue() > 9);
 
 
     }

@@ -103,6 +103,15 @@ public class LoginDaoIMP implements LoginDAO {
         return false; // Retorna falso se o usuário não for encontrado
     }
 
+    public boolean deleteUser(User user) {
+        for (User u : users) {
+            if (u.equals(user)) {
+                return users.remove(u); // Remove o usuário da lista e retorna verdadeiro
+            }
+        }
+        return false; // Retorna falso se o usuário não for encontrado
+    }
+
     // Método para buscar um usuário por ID em uma lista específica de usuários
     public User findUser(int id, List<User> users) {
 
@@ -123,7 +132,7 @@ public class LoginDaoIMP implements LoginDAO {
 
     @Override
     public List<User> getAll() {
-        return (List<User>) instance;
+        return users;
     }
 
     private boolean verificaEmail(String email) {
@@ -136,8 +145,6 @@ public class LoginDaoIMP implements LoginDAO {
             }
 
         }
-
-
         return verifica;
     }
 

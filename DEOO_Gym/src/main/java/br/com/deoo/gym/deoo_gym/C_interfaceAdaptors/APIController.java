@@ -1,5 +1,6 @@
 package br.com.deoo.gym.deoo_gym.C_interfaceAdaptors;
 
+import br.com.deoo.gym.deoo_gym.A_entity.Training;
 import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.dto.PhyCharacteristicsDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -33,13 +34,17 @@ public class APIController {
                 requestEntity,
                 String.class
         );
-        //recebe a requisição e envia pra classe JSONFormatting
         String responseBody = responseEntity.getBody();
         JSONFormatting jf = new JSONFormatting(responseBody);
 
-        //usa o metodo da classe que pega so oq tem dentro de text !
         jf.processJSON();
-        return jf.getClearText();
+
+        Training training = SeparateTraining.splitTraining(jf.getClearText());
+
+        return "Treino A: " + training.getA() + "\n" +
+                "Treino B: " + training.getB() + "\n" +
+                "Treino C: " + training.getC();
+        //tem que instanciar o usuario, a reposta da api pra ele e setar os treinos ABC pra funcionar isso aq
 
 //        como testar:
 //        1- abra o arquivo application.properties que ta dentro da pasta resousers e coloque sua api key

@@ -5,16 +5,18 @@ public class PhysicalCharacteristics {
     private double weight;
     private double height;
     private String gender;
+    private int age;
     private String physicalGoal; // Sugerível enum
     private double IMC;
 
 
-    public PhysicalCharacteristics( double weight, double height, String gender, String physicalGoal, double IMC) {
+    public PhysicalCharacteristics( double weight, double height, String gender, String physicalGoal, double IMC, int age) {
         this.weight = weight;
         this.height = height;
         this.gender = gender;
         this.physicalGoal = physicalGoal;
         this.IMC = IMC;
+        this.age = age;
     }
 
     //uso do this para deixar claro que as referencias estao sendo feitas a partir da classe atual
@@ -23,12 +25,19 @@ public class PhysicalCharacteristics {
         return this.IMC;
     }
 
+    public int getAge() {
+        return age;
+    }
 
-    public double getWidth() {
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public double getWeight() {
         return weight;
     }
 
-    public void setWidth(double weight) {
+    public void setWeighth(double weight) {
         this.weight = weight;
     }
 

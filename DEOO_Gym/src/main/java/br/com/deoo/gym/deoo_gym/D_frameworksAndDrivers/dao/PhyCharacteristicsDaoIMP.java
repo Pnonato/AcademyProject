@@ -38,4 +38,8 @@ public class PhyCharacteristicsDaoIMP {
         characteristicsList.removeIf(characteristics -> characteristics.getGender().equals(gender));
 
     }
+
+    public List<PhysicalCharacteristics> getCharacteristicsList() {
+        return characteristicsList;
+    }
 }

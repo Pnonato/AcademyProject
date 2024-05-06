@@ -1,6 +1,9 @@
-package br.com.deoo.gym.deoo_gym.C_interfaceAdaptors;
+package br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.Controllers;
 
 import br.com.deoo.gym.deoo_gym.A_entity.Training;
+import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.APIRequest;
+import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.JSONFormatting;
+import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.SeparateTraining;
 import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.dto.PhyCharacteristicsDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

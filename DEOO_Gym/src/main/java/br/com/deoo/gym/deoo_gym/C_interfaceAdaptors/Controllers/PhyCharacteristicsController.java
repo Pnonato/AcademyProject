@@ -1,4 +1,4 @@
-package br.com.deoo.gym.deoo_gym.C_interfaceAdaptors;
+package br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.Controllers;
 
 import br.com.deoo.gym.deoo_gym.A_entity.User;
 import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.view.PhyCharacteristicsView;

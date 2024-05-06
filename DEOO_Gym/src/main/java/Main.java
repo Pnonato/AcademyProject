@@ -1,5 +1,5 @@
 import br.com.deoo.gym.deoo_gym.A_entity.User;
-import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.LoginController;
+import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.Controllers.LoginController;
 import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.view.ConsoleLoginView;
 import java.util.Scanner;
 

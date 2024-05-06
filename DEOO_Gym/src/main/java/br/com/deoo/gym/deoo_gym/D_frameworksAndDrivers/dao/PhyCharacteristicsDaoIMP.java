@@ -1,45 +1,29 @@
 package br.com.deoo.gym.deoo_gym.D_frameworksAndDrivers.dao;
 
-import br.com.deoo.gym.deoo_gym.A_entity.PhysicalCharacteristics;
 
-import java.util.ArrayList;
-import java.util.List;
+import br.com.deoo.gym.deoo_gym.A_entity.User;
 
-public class PhyCharacteristicsDaoIMP {
-    private List<PhysicalCharacteristics> characteristicsList;
 
-    public PhyCharacteristicsDaoIMP() {
-        this.characteristicsList = new ArrayList<>();
-    }
+public class PhyCharacteristicsDaoIMP implements PhyCharacteristicsDAO {
 
-    public List<PhysicalCharacteristics> getAll() {
-        return characteristicsList;
-    }
 
-    public void addCharacteristics(PhysicalCharacteristics characteristics) {
-        if(characteristics != null){
-            characteristicsList.add(characteristics);
-        }
-    }
 
-    public void updateCharacteristics(PhysicalCharacteristics updatedCharacteristics) {
-        for (int i = 0; i < characteristicsList.size(); i++) {
-            PhysicalCharacteristics characteristics = characteristicsList.get(i);
-            if (characteristics.getGender().equals(updatedCharacteristics.getGender())) {
-                // Atualizar as características físicas com base no gênero (pode ser necessário adicionar mais critérios de comparação)
-                characteristicsList.set(i, updatedCharacteristics);
-                return;
-            }
-        }
+    @Override
+    public void updateWeight(User user, double weight) {
+        user.getCharacteristic().setWeight(weight);
 
     }
 
-    public void deleteCharacteristics(String gender) {
-        characteristicsList.removeIf(characteristics -> characteristics.getGender().equals(gender));
+    @Override
+    public void updateHeight(User user, double height) {
+        user.getCharacteristic().setHeight(height);
+    }
+
+    @Override
+    public void updateGoal(User user, String goal) {
+        user.getCharacteristic().setPhysicalGoal(goal);
 
     }
 
-    public List<PhysicalCharacteristics> getCharacteristicsList() {
-        return characteristicsList;
-    }
+
 }

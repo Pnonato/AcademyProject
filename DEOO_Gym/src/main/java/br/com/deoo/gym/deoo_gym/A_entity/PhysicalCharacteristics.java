@@ -37,7 +37,7 @@ public class PhysicalCharacteristics {
         return weight;
     }
 
-    public void setWeighth(double weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 

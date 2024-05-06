@@ -8,7 +8,10 @@ public interface PhyCharacteristicsView {
 
     void showAlert(String message);
 
-    int uptadeCharacteristics(User user);
+    int uptadeCharacteristics();
+    String updateGoal();
+    double updateHeight();
+    double updateWeight();
 
 
 

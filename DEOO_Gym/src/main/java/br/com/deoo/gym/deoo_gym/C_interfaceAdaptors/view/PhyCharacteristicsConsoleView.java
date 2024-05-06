@@ -5,6 +5,7 @@ import br.com.deoo.gym.deoo_gym.A_entity.User;
 import java.util.Scanner;
 
 public class PhyCharacteristicsConsoleView implements PhyCharacteristicsView {
+    private Scanner teste = new Scanner(System.in);
 
     @Override
     public void showCharacteristics(User user) {
@@ -30,8 +31,8 @@ public class PhyCharacteristicsConsoleView implements PhyCharacteristicsView {
     }
 
     @Override
-    public int uptadeCharacteristics(User user) {
-        Scanner teste = new Scanner(System.in);
+    public int uptadeCharacteristics() {
+
         int i;
         do {
             System.out.println("O que você gostaria de atualizar?");
@@ -43,4 +44,27 @@ public class PhyCharacteristicsConsoleView implements PhyCharacteristicsView {
         } while (i < 0 || i > 3);
         return i;
     }
+
+    @Override
+    public String updateGoal() {
+        String msg;
+        System.out.println("Qual sua nova meta?");
+        return msg = teste.next();
+    }
+
+    @Override
+    public double updateHeight() {
+        double numb;
+        System.out.println("Qual sua nova Altura?");
+        return numb = teste.nextDouble();
+    }
+
+    @Override
+    public double updateWeight(){
+        double numb;
+        System.out.println("Qual seu novo Peso?");
+        return numb = teste.nextDouble();
+    }
+
+
 }

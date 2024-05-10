@@ -21,6 +21,7 @@ dependencies {
 	implementation 'com.mashape.unirest:unirest-java:1.4.9'
 	implementation 'org.json:json:20210307'
 	implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 }
 
 tasks.named('test') {

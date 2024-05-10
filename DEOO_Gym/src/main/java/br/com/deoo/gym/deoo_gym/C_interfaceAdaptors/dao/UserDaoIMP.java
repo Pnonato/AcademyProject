@@ -1,10 +1,13 @@
-package br.com.deoo.gym.deoo_gym.D_frameworksAndDrivers.dao;
+package br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.dao;
 
 import br.com.deoo.gym.deoo_gym.A_entity.User;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Component
 public class UserDaoIMP implements UserDAO{
 
     private static UserDaoIMP instance;
@@ -55,6 +58,11 @@ public class UserDaoIMP implements UserDAO{
            }
        }
        return null; //se não achar o usuario
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return null;
     }
     // Poderiamos usar o try catch para evitar erros de exçeção
 }

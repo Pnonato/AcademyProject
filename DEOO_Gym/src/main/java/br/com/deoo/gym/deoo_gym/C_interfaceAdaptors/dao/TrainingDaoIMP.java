@@ -1,4 +1,4 @@
-package br.com.deoo.gym.deoo_gym.D_frameworksAndDrivers.dao;
+package br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.dao;
 
 public class TrainingDaoIMP implements  TrainingDAO{
 

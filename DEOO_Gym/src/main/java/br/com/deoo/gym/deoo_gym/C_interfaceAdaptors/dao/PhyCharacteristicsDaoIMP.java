@@ -1,12 +1,10 @@
-package br.com.deoo.gym.deoo_gym.D_frameworksAndDrivers.dao;
+package br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.dao;
 
 
 import br.com.deoo.gym.deoo_gym.A_entity.User;
 
 
 public class PhyCharacteristicsDaoIMP implements PhyCharacteristicsDAO {
-
-
 
     @Override
     public void updateWeight(User user, double weight) {

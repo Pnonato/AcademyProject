@@ -7,22 +7,16 @@ public class PhysicalCharacteristics {
     private String gender;
     private int age;
     private String physicalGoal; // Sugerível enum
-    private double IMC;
+    private double BMI;
 
 
-    public PhysicalCharacteristics( double weight, double height, String gender, String physicalGoal, double IMC, int age) {
+    public PhysicalCharacteristics( double weight, double height, String gender, String physicalGoal, double BMI, int age) {
         this.weight = weight;
         this.height = height;
         this.gender = gender;
         this.physicalGoal = physicalGoal;
-        this.IMC = IMC;
+        this.BMI = BMI;
         this.age = age;
-    }
-
-    //uso do this para deixar claro que as referencias estao sendo feitas a partir da classe atual
-    public double calculateIMC() {
-        this.IMC = this.weight / ((this.height/100) * (this.height/100));
-        return this.IMC;
     }
 
     public int getAge() {
@@ -66,7 +60,4 @@ public class PhysicalCharacteristics {
     }
 
 
-    public void setIMC(double IMC) {
-        this.IMC = IMC;
-    }
 }

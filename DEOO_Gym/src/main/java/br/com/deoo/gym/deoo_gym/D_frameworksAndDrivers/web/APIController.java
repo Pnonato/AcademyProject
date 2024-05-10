@@ -1,7 +1,6 @@
-package br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.Controllers;
+package br.com.deoo.gym.deoo_gym.D_frameworksAndDrivers.web;
 
 import br.com.deoo.gym.deoo_gym.A_entity.Training;
-import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.APIRequest;
 import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.JSONFormatting;
 import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.SeparateTraining;
 import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.dto.PhyCharacteristicsDTO;
@@ -42,11 +41,13 @@ public class APIController {
 
         jf.processJSON();
 
-        Training training = SeparateTraining.splitTraining(jf.getClearText());
+        return jf.getClearText();
 
-        return "Treino A: " + training.getA() + "\n" +
-                "Treino B: " + training.getB() + "\n" +
-                "Treino C: " + training.getC();
+//        Training training = SeparateTraining.splitTraining(jf.getClearText());
+
+//        return "Treino A: " + training.getA() + "\n" +
+//                "Treino B: " + training.getB() + "\n" +
+//                "Treino C: " + training.getC();
         //tem que instanciar o usuario, a reposta da api pra ele e setar os treinos ABC pra funcionar isso aq
 
 //        como testar:

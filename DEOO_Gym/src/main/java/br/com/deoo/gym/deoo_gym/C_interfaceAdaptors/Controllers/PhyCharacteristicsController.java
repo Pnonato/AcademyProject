@@ -2,7 +2,7 @@ package br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.Controllers;
 
 import br.com.deoo.gym.deoo_gym.A_entity.User;
 import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.view.PhyCharacteristicsView;
-import br.com.deoo.gym.deoo_gym.D_frameworksAndDrivers.dao.PhyCharacteristicsDaoIMP;
+import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.dao.PhyCharacteristicsDaoIMP;
 
 public class PhyCharacteristicsController {
 

@@ -9,7 +9,7 @@ public class User{
 
     private Training training;
 
-    private User(){
+    public User(){
         this.id = ++count;
     }
     public User(String name, String email, String password){

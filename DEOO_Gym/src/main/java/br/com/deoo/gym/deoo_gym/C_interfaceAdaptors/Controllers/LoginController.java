@@ -2,8 +2,8 @@ package br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.Controllers;
 
 import br.com.deoo.gym.deoo_gym.A_entity.User;
 import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.view.UserView;
-import br.com.deoo.gym.deoo_gym.D_frameworksAndDrivers.dao.LoginDAO;
-import br.com.deoo.gym.deoo_gym.D_frameworksAndDrivers.dao.LoginDaoIMP;
+import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.dao.LoginDAO;
+import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.dao.LoginDaoIMP;
 
 import java.util.Iterator;
 

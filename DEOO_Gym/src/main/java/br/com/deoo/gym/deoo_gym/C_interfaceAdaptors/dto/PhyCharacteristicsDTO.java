@@ -26,10 +26,10 @@ public class PhyCharacteristicsDTO{
     public void setPhysicalGoal(String physicalGoal) {
         this.physicalGoal = physicalGoal;
     }
-    //retorna o imc que é calculado na classe physicalCharacteristics - entidade
+
     public double getIMC() {
         return IMC;
-    }
+    } //
 
     @Override
     public  String toString() {

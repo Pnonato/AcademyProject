@@ -4,7 +4,7 @@ public class User{
     private String name;
     private String email;
     private String password;
-    private int count;
+    private static int count = 0;
     private PhysicalCharacteristics characteristic;
 
     private Training training;

@@ -6,10 +6,9 @@ import java.util.List;
 
 public interface UserDAO {
 
-    boolean insert(User user);
+    void insert(User user) throws Exception;
     boolean delete(int id);
     List<User> getAllUsers();
     User getUserById(int id);
-
-    User getUserByEmail(String email); //adicionar o metodo no implementação tb
+    User getUserByEmail(String email);
 }

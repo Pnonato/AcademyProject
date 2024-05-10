@@ -25,14 +25,12 @@ public class UserDaoIMP implements UserDAO{
     }
 
     @Override
-    public boolean insert(User user) {
-        for (User u : users){
-            if (u.getId() == user.getId()){ //verifica se ja tem um usado com o mesmo id
-                return false;
+    public void insert(User user) throws Exception{
+            if(getUserByEmail(user.getEmail()) == null){
+                 users.add(user);
+        }else{
+                throw new Exception("email ja existente ");
             }
-        }
-
-        return users.add(user);
     }
 
     @Override
@@ -62,7 +60,12 @@ public class UserDaoIMP implements UserDAO{
 
     @Override
     public User getUserByEmail(String email) {
+        for (User u: users){
+            if(u.getEmail().equals(email)){
+                return u;
+            }
+        }
         return null;
     }
-    // Poderiamos usar o try catch para evitar erros de exçeção
+
 }

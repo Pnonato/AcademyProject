@@ -6,7 +6,6 @@ public class User{
     private String password;
     private static int count = 0;
     private PhysicalCharacteristics characteristic;
-
     private Training training;
 
     public User(){
@@ -74,4 +73,5 @@ public class User{
     public void setTraining(Training training) {
         this.training = training;
     }
+
 }

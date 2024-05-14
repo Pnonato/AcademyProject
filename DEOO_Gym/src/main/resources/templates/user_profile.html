@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>perfil do usuario</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>User Profile</h1>
+<div th:if="${loggedInUser}">
+    <p>Name: <span th:text="${loggedInUser.name}"></span></p>
+    <p>Email: <span th:text="${loggedInUser.email}"></span></p>
+</div>
+<div th:unless="${loggedInUser}">
+    <p>voce nao esta logado !</p>
+</div>
+</body>
+</html>

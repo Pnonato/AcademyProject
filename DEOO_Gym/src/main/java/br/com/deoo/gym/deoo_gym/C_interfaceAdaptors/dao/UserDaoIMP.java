@@ -68,4 +68,16 @@ public class UserDaoIMP implements UserDAO{
         return null;
     }
 
+    @Override
+    public boolean update(User user) {
+        for (int i = 0; i < users.size(); i++) {
+            User currentUser = users.get(i);
+            if (currentUser.getId() == user.getId()) {
+                users.set(i, user);
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

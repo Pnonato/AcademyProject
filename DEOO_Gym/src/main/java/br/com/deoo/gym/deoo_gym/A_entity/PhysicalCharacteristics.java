@@ -18,6 +18,17 @@ public class PhysicalCharacteristics {
         this.BMI = BMI;
         this.age = age;
     }
+    //construtor temporario sem o bmi
+    public PhysicalCharacteristics( double weight, double height, String gender, String physicalGoal,int age) {
+        this.weight = weight;
+        this.height = height;
+        this.gender = gender;
+        this.physicalGoal = physicalGoal;
+        this.age = age;
+    }
+
+    public PhysicalCharacteristics(double weight, double height) {
+    }
 
     public int getAge() {
         return age;

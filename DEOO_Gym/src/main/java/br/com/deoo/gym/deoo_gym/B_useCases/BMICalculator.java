@@ -1,16 +1,16 @@
-package br.com.deoo.gym.deoo_gym.B_useCases;
-
-import br.com.deoo.gym.deoo_gym.A_entity.PhysicalCharacteristicsReader;
-
-//separação da classe que calcula o Imc para seguir o principio de responsabilidade unicia e tmb tirar a logica
-//de neogcios da camadada entities
-public class BMICalculator {
-
-    public double calculateBMI(PhysicalCharacteristicsReader characteristics){
-        if(characteristics.getHeigth() == 0 || characteristics.getWeigth() == 0){
-            throw new IllegalArgumentException("dados invalidos");
-        }
-        return characteristics.getWeigth() / ((characteristics.getHeigth()/100) * (characteristics.getHeigth()/100));
-    }
-
-}
+//package br.com.deoo.gym.deoo_gym.B_useCases;
+//
+//import br.com.deoo.gym.deoo_gym.A_entity.PhysicalCharacteristics;
+//import org.springframework.context.annotation.Bean;
+//
+//
+//public class BMICalculator {
+//
+//    public double calculateBMI(PhysicalCharacteristics characteristics){
+//        if(characteristics.getHeight() == 0 || characteristics.getWeight() == 0){
+//            throw new IllegalArgumentException("dados invalidos");
+//        }
+//        double heightInMeters = characteristics.getHeight() / 100.0;
+//        return characteristics.getWeight() / (heightInMeters * heightInMeters);
+//    }
+//}

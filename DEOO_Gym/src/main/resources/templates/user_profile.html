@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>perfil do usuario</title>
+    <title>User Profile</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -10,9 +10,32 @@
 <div th:if="${loggedInUser}">
     <p>Name: <span th:text="${loggedInUser.name}"></span></p>
     <p>Email: <span th:text="${loggedInUser.email}"></span></p>
+    <div th:if="${loggedInUser.characteristics != null}">
+        <p>Weight: <span th:text="${loggedInUser.characteristics.weight}"></span></p>
+        <p>Height: <span th:text="${loggedInUser.characteristics.height}"></span></p>
+        <p>Gender: <span th:text="${loggedInUser.characteristics.gender}"></span></p>
+        <p>Age: <span th:text="${loggedInUser.characteristics.age}"></span></p>
+        <p>Physical Goal: <span th:text="${loggedInUser.characteristics.physicalGoal}"></span></p>
+    </div>
+    <div th:if="${loggedInUser.characteristics == null}">
+        <p>No physical characteristics set!!</p>
+    </div>
+
+    <div th:if="${loggedInUser.training != null}">
+        <h2>Training</h2>
+        <p>Description: <span th:text="${loggedInUser.training.description}"></span></p>
+    </div>
+    <div th:if="${loggedInUser.training == null}">
+        <p>No workout generated.</p>
+    </div>
+
+    <form action="/generate_training" method="get">
+        <button type="submit">Generate training</button>
+    </form>
+
 </div>
 <div th:unless="${loggedInUser}">
-    <p>voce nao esta logado !</p>
+    <p>You are not logged in!</p>
 </div>
 </body>
 </html>

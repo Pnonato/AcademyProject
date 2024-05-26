@@ -2,42 +2,32 @@ package br.com.deoo.gym.deoo_gym.A_entity;
 
 import java.time.LocalDate;
 
-public class Training{
-    private String A;
-    private String B;
-    private String c;
-    // Obs: Sugerível mudar para enum para melhor performance.
+public class Training {
+    private String description;
     private LocalDate dayOfWeek;
     private boolean status;
 
-
-    public Training(String a, String b, String c) {
-        A = a;
-        B = b;
-        this.c = c;
+    public String getDescription() {
+        return description;
     }
 
-    public String getA() {
-        return A;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setA(String a) {
-        A = a;
+    public LocalDate getDayOfWeek() {
+        return dayOfWeek;
     }
 
-    public String getB() {
-        return B;
+    public void setDayOfWeek(LocalDate dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
     }
 
-    public void setB(String b) {
-        B = b;
+    public boolean isStatus() {
+        return status;
     }
 
-    public String getC() {
-        return c;
-    }
-
-    public void setC(String c) {
-        this.c = c;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

@@ -58,11 +58,11 @@ public class User{
         this.name = name;
     }
 
-    public PhysicalCharacteristics getCharacteristic() {
+    public PhysicalCharacteristics getCharacteristics() {
         return characteristic;
     }
 
-    public void setCharacteristic(PhysicalCharacteristics characteristic) {
+    public void setCharacteristics(PhysicalCharacteristics characteristic) {
         this.characteristic = characteristic;
     }
 

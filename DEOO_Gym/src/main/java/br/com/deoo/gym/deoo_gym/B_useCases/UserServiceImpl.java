@@ -1,29 +1,36 @@
 //package br.com.deoo.gym.deoo_gym.B_useCases;
 //
+//
 //import br.com.deoo.gym.deoo_gym.A_entity.User;
 //import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.dao.UserDAO;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Service;
 //
-//public class UserServiceImpl implements UserService {
+//import java.util.List;
 //
-//    private final UserDAO userDAO;
+//@Service
+//public class UserServiceImpl  {
 //
-//    public UserServiceImpl(UserDAO userDAO) {
-//        this.userDAO = userDAO;
+//    @Autowired
+//    private UserDAO userDAO;
+//
+//    public List<User> findAll() {
+//        return userDAO.getAll();
 //    }
 //
-//    @Override
-//    public User authenticateUser(String email, String password) {
-//        return new LoginImpl(userDAO).authenticateUser(email, password);
+//    public User findById(int id) {
+//        return userDAO.getById(id);
 //    }
 //
-//    @Override
-//    public void addUser(String name, String email, String password) {
+//    public void save(User user) {
+//        userDAO.add(user);
+//    }
 //
-//        User user = new User();
-//        user.setName(name);
-//        user.setEmail(email);
-//        user.setPassword(password);
+//    public void update(int id, User updatedUser) {
+//        userDAO.update(id, updatedUser);
+//    }
 //
-//        userDAO.insert(user);
+//    public void deleteById(int id) {
+//        userDAO.delete(id);
 //    }
 //}

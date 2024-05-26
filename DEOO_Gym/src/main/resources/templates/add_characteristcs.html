@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Physical Characteristics</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<h1>Add Physical Characteristics</h1>
+<form th:action="@{/add_characteristics}" th:object="${characteristics}" method="post">
+    <label>Weight: </label>
+    <input type="number" step="any" th:field="*{weight}" required/><br/>
+    <label>Height: </label>
+    <input type="number"  step="any" th:field="*{height}" required/><br/>
+    <label>Gender: </label>
+    <input type="text" th:field="*{gender}" required/><br/>
+    <label>Age: </label>
+    <input type="number" step="any" th:field="*{age}" required/><br/>
+    <label>Physical Goal: </label>
+    <input type="text" th:field="*{physicalGoal}" required/><br/>
+<!--    <label>BMI: </label>-->
+<!--    <input type="number" step="0.01" th:field="*{BMI}"/><br/>-->
+    <button type="submit">Add</button>
+</form>
+<a th:href="@{/user_profile}">Back to Profile</a>
+</body>
+</html>

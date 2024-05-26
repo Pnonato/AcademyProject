@@ -5,7 +5,7 @@ public class PhyCharacteristicsDTO{
     private String gender;
     private String physicalGoal;
     private double IMC;
-    public PhyCharacteristicsDTO( String gender, String physicalGoal, double IMC) {
+    public PhyCharacteristicsDTO( String gender, String physicalGoal) {
         this.gender = gender;
         this.physicalGoal = physicalGoal;
         this.IMC = IMC;
@@ -33,11 +33,11 @@ public class PhyCharacteristicsDTO{
 
     @Override
     public  String toString() {
-        return "monte um treino A, B, C,  para uma pessoa do sexo "
+        return "create a workout A, B, C for a person of the sex"
                 + gender +
-                "com o imc"
-                + IMC +
-                "e com o objetivo de" +
+//                "com o imc"
+//                + IMC +
+                "with the goal of" +
                 " " +physicalGoal;
     }
 }

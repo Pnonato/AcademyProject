@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>add user</title>
+    <title>Create new account</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<h2>novo usuario</h2>
+<h2>Create new account</h2>
 <div th:if="${message}" style="color: #baea99;">[[${message}]]</div>
 <div th:if="${error}" style="color: #f1aaf6;">[[${error}]]</div>
 
 <form th:action="@{/add_user}" th:object="${user}" method="post">
 
-    <label for="name">Nome:</label>
+    <label for="name">Name:</label>
     <input type="text" id="name" name="name" th:field="*{name}" required><br>
 
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" th:field="*{email}" required><br>
 
-    <label for="password">Senha:</label>
+    <label for="password">Passoword:</label>
     <input type="password" id="password" name="password" th:field="*{password}" required><br>
 
-    <button type="submit">enviar</button>
+    <button type="submit">Create account</button>
 </form>
 
 </body>

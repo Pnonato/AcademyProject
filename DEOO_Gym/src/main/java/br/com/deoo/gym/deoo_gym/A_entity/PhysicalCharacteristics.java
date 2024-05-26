@@ -30,6 +30,10 @@ public class PhysicalCharacteristics {
     public PhysicalCharacteristics(double weight, double height) {
     }
 
+    public PhysicalCharacteristics() {
+
+    }
+
     public int getAge() {
         return age;
     }

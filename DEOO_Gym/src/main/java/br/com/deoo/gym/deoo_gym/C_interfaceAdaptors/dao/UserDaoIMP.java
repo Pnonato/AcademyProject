@@ -29,7 +29,7 @@ public class UserDaoIMP implements UserDAO{
             if(getUserByEmail(user.getEmail()) == null){
                  users.add(user);
         }else{
-                throw new Exception("email ja existente ");
+                throw new Exception("Email already registered");
             }
     }
 
@@ -69,15 +69,17 @@ public class UserDaoIMP implements UserDAO{
     }
 
     @Override
-    public boolean update(User user) {
-        for (int i = 0; i < users.size(); i++) {
-            User currentUser = users.get(i);
-            if (currentUser.getId() == user.getId()) {
-                users.set(i, user);
-                return true;
+    public void update(int id, User updatedUser) {
+        for (User user : users) {
+            if (user.getId() == id) {
+                user.setName(updatedUser.getName());
+                user.setEmail(updatedUser.getEmail());
+                user.setPassword(updatedUser.getPassword());
+                user.setCharacteristics(updatedUser.getCharacteristics());
+                user.setTraining(updatedUser.getTraining());
+                break;
             }
         }
-        return false;
     }
 
 }

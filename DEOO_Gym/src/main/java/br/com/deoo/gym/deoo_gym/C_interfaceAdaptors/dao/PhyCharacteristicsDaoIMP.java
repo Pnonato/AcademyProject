@@ -8,20 +8,18 @@ public class PhyCharacteristicsDaoIMP implements PhyCharacteristicsDAO {
 
     @Override
     public void updateWeight(User user, double weight) {
-        user.getCharacteristic().setWeight(weight);
+        user.getCharacteristics().setWeight(weight);
 
     }
-
     @Override
     public void updateHeight(User user, double height) {
-        user.getCharacteristic().setHeight(height);
+        user.getCharacteristics().setHeight(height);
     }
 
     @Override
     public void updateGoal(User user, String goal) {
-        user.getCharacteristic().setPhysicalGoal(goal);
+        user.getCharacteristics().setPhysicalGoal(goal);
 
     }
-
 
 }

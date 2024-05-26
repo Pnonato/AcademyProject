@@ -2,24 +2,24 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Usuários</title>
+    <title>Users list</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<h2>Lista de Usuários</h2>
+<h2>Users list</h2>
 
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>Nome</th>
+        <th>Name</th>
         <th>Email</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="user : ${userList}">
         <td th:text="${user.id}">ID</td>
-        <td th:text="${user.name}">Nome</td>
+        <td th:text="${user.name}">Name</td>
         <td th:text="${user.email}">Email</td>
     </tr>
     </tbody>

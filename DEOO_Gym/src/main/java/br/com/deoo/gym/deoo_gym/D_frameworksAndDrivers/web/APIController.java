@@ -1,20 +1,23 @@
 package br.com.deoo.gym.deoo_gym.D_frameworksAndDrivers.web;
 
+import br.com.deoo.gym.deoo_gym.A_entity.PhysicalCharacteristics;
 import br.com.deoo.gym.deoo_gym.A_entity.Training;
+import br.com.deoo.gym.deoo_gym.A_entity.User;
 import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.JSONFormatting;
-import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.SeparateTraining;
 import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.dto.PhyCharacteristicsDTO;
+import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.dao.UserDAO;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-@RestController
+@Controller
 public class APIController {
+
     @Qualifier("APIRestTemplate")
     @Autowired
     private RestTemplate restTemplate;
@@ -22,43 +25,51 @@ public class APIController {
     @Value("${api.key}")
     private String apiKey;
 
-    @GetMapping("/send")
-    public String send(@RequestParam String prompt) {
-        PhyCharacteristicsDTO dto = new PhyCharacteristicsDTO("feminino", "aumento Massa", 16);
-        APIRequest request = new APIRequest(dto.toString());
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<APIRequest> requestEntity = new HttpEntity<>(request, headers);
+    @Autowired
+    private UserDAO userDAO;
 
-        ResponseEntity<String> responseEntity = restTemplate.exchange(
-                "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey,
-                HttpMethod.POST,
-                requestEntity,
-                String.class
-        );
-        String responseBody = responseEntity.getBody();
-        JSONFormatting jf = new JSONFormatting(responseBody);
+    private User getLoggedInUser(HttpSession session) {
+        return (User) session.getAttribute("loggedInUser");
+    }
 
-        jf.processJSON();
+    @GetMapping("/generate_training")
+    public String generateTraining(HttpSession session) {
+        User loggedInUser = getLoggedInUser(session);
 
-        return jf.getClearText();
+        if (loggedInUser != null && loggedInUser.getCharacteristics() != null) {
+            PhysicalCharacteristics characteristics = loggedInUser.getCharacteristics();
+            PhyCharacteristicsDTO phyCharacteristicsDTO = new PhyCharacteristicsDTO(
+                    characteristics.getGender(),
+                    characteristics.getPhysicalGoal()
+            );
 
-//        Training training = SeparateTraining.splitTraining(jf.getClearText());
+            String prompt = phyCharacteristicsDTO.toString();
+            APIRequest request = new APIRequest(prompt);
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            HttpEntity<APIRequest> requestEntity = new HttpEntity<>(request, headers);
 
-//        return "Treino A: " + training.getA() + "\n" +
-//                "Treino B: " + training.getB() + "\n" +
-//                "Treino C: " + training.getC();
-        //tem que instanciar o usuario, a reposta da api pra ele e setar os treinos ABC pra funcionar isso aq
+            ResponseEntity<String> responseEntity = restTemplate.exchange(
+                    "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey,
+                    HttpMethod.POST,
+                    requestEntity,
+                    String.class
+            );
+            String responseBody = responseEntity.getBody();
+            JSONFormatting jf = new JSONFormatting(responseBody);
 
-//        como testar:
-//        1- abra o arquivo application.properties que ta dentro da pasta resousers e coloque sua api key
-//        ao lado de api.key (coloque sem aspas)
-//        2-modifique a instancia do PhyCharacteristicsDTO
-//        3-rode o programa
-//        4-coloque o link no navegador     http://localhost:8080/send?prompt !!
+            jf.processJSON();
+            String clearText = jf.getClearText();
 
+            Training training = new Training();
+            training.setDescription(clearText);
+            loggedInUser.setTraining(training);
+
+            userDAO.update(loggedInUser.getId(), loggedInUser);
+
+            return "redirect:/user_profile";
+        } else {
+            return "redirect:/error";
+        }
     }
 }
-
-
-

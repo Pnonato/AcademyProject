@@ -13,12 +13,12 @@ public class PhyCharacteristicsConsoleView implements PhyCharacteristicsView {
         System.out.println("|**--  Caracteristicas Físicas do " + user.getName() + "--**|");
         System.out.println("|---------------------------------------------|");
         System.out.println("| Nome: " + user.getName());
-        System.out.println("| Idade: " + user.getCharacteristic().getAge());
-        System.out.println("| Gênero: " + user.getCharacteristic().getGender());
-        System.out.println("| Peso: " + user.getCharacteristic().getWeight());
-        System.out.println("| Altura: " + user.getCharacteristic().getHeight());
-//        System.out.println("| IMC: " + user.getCharacteristic().calculateIMC());
-        System.out.println("| Meta: " + user.getCharacteristic().getPhysicalGoal());
+        System.out.println("| Idade: " + user.getCharacteristics().getAge());
+        System.out.println("| Gênero: " + user.getCharacteristics().getGender());
+        System.out.println("| Peso: " + user.getCharacteristics().getWeight());
+        System.out.println("| Altura: " + user.getCharacteristics().getHeight());
+//        System.out.println("| IMC: " + user.getCharacteristics().calculateIMC());
+        System.out.println("| Meta: " + user.getCharacteristics().getPhysicalGoal());
         System.out.println("|---------------------------------------------");
 
     }

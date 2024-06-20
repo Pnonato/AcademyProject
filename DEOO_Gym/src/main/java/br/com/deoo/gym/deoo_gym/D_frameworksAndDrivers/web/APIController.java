@@ -3,9 +3,10 @@ package br.com.deoo.gym.deoo_gym.D_frameworksAndDrivers.web;
 import br.com.deoo.gym.deoo_gym.A_entity.PhysicalCharacteristics;
 import br.com.deoo.gym.deoo_gym.A_entity.Training;
 import br.com.deoo.gym.deoo_gym.A_entity.User;
+import br.com.deoo.gym.deoo_gym.B_useCases.UserService;
 import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.JSONFormatting;
 import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.dto.PhyCharacteristicsDTO;
-import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.dao.UserDAO;
+import br.com.deoo.gym.deoo_gym.B_useCases.DAOInterfaces.UserDAO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -26,14 +27,14 @@ public class APIController {
     private String apiKey;
 
     @Autowired
-    private UserDAO userDAO;
+    private UserService userService;
 
     private User getLoggedInUser(HttpSession session) {
         return (User) session.getAttribute("loggedInUser");
     }
 
     @GetMapping("/generate_training")
-    public String generateTraining(HttpSession session) {
+    public String generateTraining(HttpSession session) throws Exception {
         User loggedInUser = getLoggedInUser(session);
 
         if (loggedInUser != null && loggedInUser.getCharacteristics() != null) {
@@ -65,7 +66,7 @@ public class APIController {
             training.setDescription(clearText);
             loggedInUser.setTraining(training);
 
-            userDAO.update(loggedInUser.getId(), loggedInUser);
+            userService.update(loggedInUser.getId(), loggedInUser);
 
             return "redirect:/user_profile";
         } else {

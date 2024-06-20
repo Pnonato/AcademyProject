@@ -10,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 public class DeooGymApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DeooGymApplication.class, args);
+
 	}
 
 }

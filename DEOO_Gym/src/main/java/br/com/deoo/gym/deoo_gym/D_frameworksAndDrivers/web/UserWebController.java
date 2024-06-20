@@ -2,7 +2,7 @@ package br.com.deoo.gym.deoo_gym.D_frameworksAndDrivers.web;
 
 import br.com.deoo.gym.deoo_gym.A_entity.PhysicalCharacteristics;
 import br.com.deoo.gym.deoo_gym.A_entity.User;
-import br.com.deoo.gym.deoo_gym.C_interfaceAdaptors.dao.UserDAO;
+import br.com.deoo.gym.deoo_gym.B_useCases.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,11 +18,11 @@ import java.util.List;
 @SessionAttributes("loggedInUser")
 public class UserWebController {
 
-    private final UserDAO userDAO;
+    private final UserService userService;
 
     @Autowired
-    public UserWebController(UserDAO userDAO) {
-        this.userDAO = userDAO;
+    public UserWebController(UserService userService) {
+        this.userService = userService;
     }
 
     private User getLoggedInUser(HttpSession session) {
@@ -38,7 +38,7 @@ public class UserWebController {
     @PostMapping("/add_user")
     public String addUser(User user, Model model) {
         try {
-            userDAO.insert(user);
+            userService.add(user);
             model.addAttribute("message", "Registration completed!!");
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
@@ -48,7 +48,7 @@ public class UserWebController {
 
     @GetMapping("/user_list")
     public String showUserList(Model model) {
-        List<User> userList = userDAO.getAllUsers();
+        List<User> userList = userService.list();
         model.addAttribute("userList", userList);
         return "user_list";
     }
@@ -63,23 +63,23 @@ public class UserWebController {
         }
         return "user_profile";
     }
-    @GetMapping("/add_characteristcs")
+    @GetMapping("/add_characteristics")
     public String showAddCharacteristicsForm(Model model, HttpSession session) {
         User loggedInUser = (User) session.getAttribute("loggedInUser");
         if (loggedInUser != null) {
             model.addAttribute("characteristics", new PhysicalCharacteristics());
-            return "add_characteristcs";
+            return "add_characteristics";
         } else {
             return "redirect:/login";
         }
     }
 
     @PostMapping("/add_characteristics")
-    public String addCharacteristics(@ModelAttribute PhysicalCharacteristics characteristics, Model model, HttpSession session) {
+    public String addCharacteristics(@ModelAttribute PhysicalCharacteristics characteristics, Model model, HttpSession session) throws Exception {
         User loggedInUser = (User) session.getAttribute("loggedInUser");
         if (loggedInUser != null) {
             loggedInUser.setCharacteristics(characteristics);
-            userDAO.update(loggedInUser.getId(), loggedInUser);
+            userService.update(loggedInUser.getId(), loggedInUser);
             model.addAttribute("message", "Features added successfully!");
             return "redirect:/user_profile";
         } else {

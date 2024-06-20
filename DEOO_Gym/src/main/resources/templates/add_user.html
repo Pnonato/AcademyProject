@@ -10,19 +10,21 @@
 <div th:if="${message}" style="color: #baea99;">[[${message}]]</div>
 <div th:if="${error}" style="color: #f1aaf6;">[[${error}]]</div>
 
-<form th:action="@{/add_user}" th:object="${user}" method="post">
+<div class="div_form">
+    <form th:action="@{/add_user}" th:object="${user}" method="post">
 
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" th:field="*{name}" required><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" th:field="*{name}" required><br>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" th:field="*{email}" required><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" th:field="*{email}" required><br>
 
-    <label for="password">Passoword:</label>
-    <input type="password" id="password" name="password" th:field="*{password}" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" th:field="*{password}" required><br>
 
-    <button type="submit">Create account</button>
-</form>
+        <button type="submit">Create account</button>
+    </form>
+</div>
 
 </body>
 </html>

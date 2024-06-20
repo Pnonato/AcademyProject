@@ -9,7 +9,6 @@ public class PhysicalCharacteristics {
     private String physicalGoal; // Sugerível enum
     private double BMI;
 
-
     public PhysicalCharacteristics( double weight, double height, String gender, String physicalGoal, double BMI, int age) {
         this.weight = weight;
         this.height = height;

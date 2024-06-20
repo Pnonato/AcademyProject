@@ -5,7 +5,7 @@ public class User{
     private String email;
     private String password;
     private static int count = 0;
-    private PhysicalCharacteristics characteristic;
+    private PhysicalCharacteristics characteristics;
     private Training training;
 
     public User(){
@@ -17,12 +17,12 @@ public class User{
         this.email = email;
         this.password = password;
     }
-    public User(String name, String email, String password, PhysicalCharacteristics characteristic, Training training) {
+    public User(String name, String email, String password, PhysicalCharacteristics characteristics, Training training) {
         this();
         this.name = name;
         this.email = email;
         this.password = password;
-        this.characteristic = characteristic;
+        this.characteristics = characteristics;
         this.training = training;
     }
 
@@ -59,11 +59,11 @@ public class User{
     }
 
     public PhysicalCharacteristics getCharacteristics() {
-        return characteristic;
+        return characteristics;
     }
 
-    public void setCharacteristics(PhysicalCharacteristics characteristic) {
-        this.characteristic = characteristic;
+    public void setCharacteristics(PhysicalCharacteristics characteristics) {
+        this.characteristics = characteristics;
     }
 
     public Training getTraining() {

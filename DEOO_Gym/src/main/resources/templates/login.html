@@ -3,28 +3,31 @@
 <head>
     <title>login</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/favicon.png}" rel="icon" type="image/x-icon"/>
     <link th:href="@{/css/styles.css}" rel="stylesheet"/>
 </head>
 <body>
-<h2>Log in !!</h2>
 
-<div th:if="${message}" style="color: #baea99;">[[${message}]]</div>
-<div th:if="${error}" style="color: #f1aaf6;">[[${error}]]</div>
 
+<div th:replace="~{header :: nav}"></div>
+<div class="container">
+    <h1 class="h1-title">Log in !!</h1>
 <form th:action="@{/login}" th:object="${user}" method="post">
 
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" th:value="${user != null ? user.email : ''}" required><br>
 
-    <label for="password">Passoword:</label>
+    <label for="password">Password:</label>
     <input type="password" id="password" name="password" th:value="${user != null ? user.password : ''}" required><br>
 
-
+    <div th:if="${message}" style="color: darkred;">[[${message}]]</div>
+    <div th:if="${error}" style="color: darkred;">[[${error}]]</div>
     <button type="submit">Send</button>
+    <p><a href="/user_profile"> User Profile!! </a></p>
+
 
 </form>
-
-<p>User Profile<a href="/user_profile">  aqui!! </a></p>
+</div>
 
 
 </body>

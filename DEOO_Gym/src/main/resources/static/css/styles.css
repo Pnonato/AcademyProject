@@ -1,75 +1,127 @@
-/* Styles for the login page */
+/* Estilos gerais */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
-
-
-
     height: 100vh;
-
+    background-color: #d0ccd0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-h2 {
-    color: #333;
-
+.h1-title {
+    color: #1d254d;
 }
 
 div {
+    margin-top: 15px;
     margin-bottom: 15px;
-
+    text-align: center;
 }
 
 label {
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
+    color: #141b3a;
 }
 
-input[type="email"], input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
 
 button {
-    background-color: #4CAF50;
+    margin-top: 10px;
+    background-color: #141b3a;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
 }
 
 button:hover {
     background-color: #45a049;
 }
 
-form {
-    background-color: #ffffff;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*transform: translateY(-20%);*/
+}
+form{
+    background-color: #ffe177;
+    border-radius: 30px;
     padding: 20px;
-
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-
+    text-align: center;
+    border: 5px solid #141b3a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.div-menu {
+    background-color: #ffe177;
+    border-radius: 30px;
+    padding: 20px;
+    text-align: center;
+    border: 5px solid #141b3a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 p {
     margin-top: 20px;
-
+    text-decoration-color: #ffffff;
+    border: solid 5px #141b3a;
+    border-radius: 10px;
+    background-color: #685e68;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="number"]{
+    padding: 5px;
+    border: solid 5px #141b3a;
+    border-radius: 10px;
+    background-color: #685e68;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 a {
-    color: #1e90ff;
+    color: #ffffff;
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
+p:hover {
+    background-color: #3CA6A6;
 }
 
+/* Estilos específicos para o nav */
+nav {
+    position: fixed; /* Fixa o nav na parte superior */
+    top: 0; /* Alinha o nav no topo da janela */
+    width: 100%; /* Define a largura completa */
+    background-color: #685e68; /* Azul bebe */
+    padding: 10px 0;
+    text-align: justify;
+    z-index: 1000; /* Garante que o nav esteja acima de outros elementos */
+}
 
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    color: #FCC560; /* Amarelo */
+}

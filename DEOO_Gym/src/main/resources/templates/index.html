@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link th:href="@{/css/styles.css}" rel="stylesheet"/>
-    <script src="../static/script.js"></script>
     <title>GYM project</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/favicon.png}" rel="icon" type="image/x-icon"/>
+    <link th:href="@{/css/styles.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1> Bem vindo </h1>
-<p> criar conta <a href="/add_user">  aqui!! </a></p>
-<p> fazer login <a href="/login"> aqui!! </a></p>
-<p> adicionar caracteristicas <a href="/add_characteristics"> aqui !!</a></p>
-<p> listar usuarios <a href="/user_list" > aqui!!</a></p>
-
+<div th:replace="~{header :: nav}"></div>
+<div class="container">
+    <h1 class="h1-title">Bem vindo!</h1>
+    <img src="/logo.png" alt="homem levantando peso !!">
+    <div class="div-menu">
+        <p><a href="/add_user"> criar conta aqui!! </a></p>
+        <p><a href="/login"> fazer login aqui!! </a></p>
+        <p><a href="/add_characteristics"> adicionar caracteristicas aqui !!</a></p>
+        <p><a href="/user_list" > listar usuarios aqui!!</a></p>
+    </div>
+</div>
 </body>
 </html>

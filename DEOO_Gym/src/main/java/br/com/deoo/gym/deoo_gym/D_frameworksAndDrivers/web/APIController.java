@@ -37,40 +37,45 @@ public class APIController {
     public String generateTraining(HttpSession session) throws Exception {
         User loggedInUser = getLoggedInUser(session);
 
-        if (loggedInUser != null && loggedInUser.getCharacteristics() != null) {
-            PhysicalCharacteristics characteristics = loggedInUser.getCharacteristics();
-            PhyCharacteristicsDTO phyCharacteristicsDTO = new PhyCharacteristicsDTO(
-                    characteristics.getGender(),
-                    characteristics.getPhysicalGoal()
-            );
+        if (loggedInUser != null) {
+            if (loggedInUser.getCharacteristics() != null) {
 
-            String prompt = phyCharacteristicsDTO.toString();
-            APIRequest request = new APIRequest(prompt);
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_JSON);
-            HttpEntity<APIRequest> requestEntity = new HttpEntity<>(request, headers);
+                PhysicalCharacteristics characteristics = loggedInUser.getCharacteristics();
+                PhyCharacteristicsDTO phyCharacteristicsDTO = new PhyCharacteristicsDTO(
+                        characteristics.getGender(),
+                        characteristics.getPhysicalGoal()
+                );
 
-            ResponseEntity<String> responseEntity = restTemplate.exchange(
-                    "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey,
-                    HttpMethod.POST,
-                    requestEntity,
-                    String.class
-            );
-            String responseBody = responseEntity.getBody();
-            JSONFormatting jf = new JSONFormatting(responseBody);
+                String prompt = phyCharacteristicsDTO.toString();
+                APIRequest request = new APIRequest(prompt);
+                HttpHeaders headers = new HttpHeaders();
+                headers.setContentType(MediaType.APPLICATION_JSON);
+                HttpEntity<APIRequest> requestEntity = new HttpEntity<>(request, headers);
 
-            jf.processJSON();
-            String clearText = jf.getClearText();
+                ResponseEntity<String> responseEntity = restTemplate.exchange(
+                        "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey,
+                        HttpMethod.POST,
+                        requestEntity,
+                        String.class
+                );
+                String responseBody = responseEntity.getBody();
+                JSONFormatting jf = new JSONFormatting(responseBody);
 
-            Training training = new Training();
-            training.setDescription(clearText);
-            loggedInUser.setTraining(training);
+                jf.processJSON();
+                String clearText = jf.getClearText();
 
-            userService.update(loggedInUser.getId(), loggedInUser);
+                Training training = new Training();
+                training.setDescription(clearText);
+                loggedInUser.setTraining(training);
 
-            return "redirect:/user_profile";
+                userService.update(loggedInUser.getId(), loggedInUser);
+
+                return "redirect:/user_profile";
+            } else {
+                return "redirect:/add_characteristics";
+            }
         } else {
-            return "redirect:/error";
+            return "redirect:/add_user";
         }
     }
 }

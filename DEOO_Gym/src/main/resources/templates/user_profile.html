@@ -3,10 +3,14 @@
 <head>
     <title>User Profile</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/favicon.png}" rel="icon" type="image/x-icon"/>
     <link th:href="@{/css/styles.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>User Profile</h1>
+
+
+<div class="container">
+    <h1 class="h1-title" >User Profile</h1>
 <div th:if="${loggedInUser}">
     <p>Name: <span th:text="${loggedInUser.name}"></span></p>
     <p>Email: <span th:text="${loggedInUser.email}"></span></p>
@@ -29,6 +33,10 @@
         <p>No workout generated.</p>
     </div>
 
+    <form action ="/add_characteristics" method="get">
+        <button type="submit">Add Characteristics </button>
+    </form>
+
     <form action="/generate_training" method="get">
         <button type="submit">Generate training</button>
     </form>
@@ -36,6 +44,7 @@
 </div>
 <div th:unless="${loggedInUser}">
     <p>You are not logged in!</p>
+</div>
 </div>
 </body>
 </html>

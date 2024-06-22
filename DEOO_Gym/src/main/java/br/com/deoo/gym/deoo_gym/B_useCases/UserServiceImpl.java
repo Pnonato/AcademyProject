@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean update(int id, User user) throws Exception{
-        if(isUserValid(user)){
+        if(user != null){
             userDAO.updateUser(id, user);
             return true;
         }else{

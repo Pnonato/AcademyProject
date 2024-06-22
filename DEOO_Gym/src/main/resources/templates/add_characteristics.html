@@ -6,7 +6,8 @@
     <link th:href="@{/css/styles.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Add Physical Characteristics</h1>
+<div class="container">
+<h1 class="h1-title">Add Physical Characteristics</h1>
 <form th:action="@{/add_characteristics}" th:object="${characteristics}" method="post">
     <label>Weight: </label>
     <input type="number" step="any" th:field="*{weight}" required/><br/>
@@ -23,5 +24,6 @@
     <button type="submit">Add</button>
 </form>
 <a th:href="@{/user_profile}">Back to Profile</a>
+</div>
 </body>
 </html>

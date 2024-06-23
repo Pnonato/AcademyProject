@@ -1,16 +1,65 @@
-/* Estilos gerais */
-body {
-    font-family: Arial, sans-serif;
-    height: 100vh;
-    background-color: #d0ccd0;
+.body-standard{
+    background-color: #f3f8f3;
     margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
-.h1-title {
-    color: #1d254d;
+.text_detail {
+    color: #45a049;
+}
+
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.h1-title{
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    white-space: nowrap;
+}
+
+
+.home-container {
+    margin-top: 2px;
+    margin-left: 2%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-image {
+    flex: 1;
+    text-align: right;
+}
+
+.home-image img {
+    width: 700px;
+    height: auto;
+    border-right: 8px solid #26bd26;
+    border-bottom: 8px solid #21a121;
+    border-top: 5px solid #5cde5c;
+    border-left: 5px solid #7be57b;
+}
+
+.text {
+    flex: 1;
+    text-align: left;
+}
+
+.green-text {
+    color: #26bd26;
 }
 
 div {
@@ -23,17 +72,15 @@ label {
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
-    color: #141b3a;
 }
-
 
 button {
     margin-top: 10px;
-    background-color: #141b3a;
+    background-color: #26bd26;
     color: white;
     padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
@@ -45,64 +92,139 @@ button:hover {
 
 .container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+.form-container {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    /*transform: translateY(-20%);*/
-}
-form{
-    background-color: #ffe177;
-    border-radius: 30px;
-    padding: 20px;
-    text-align: center;
-    border: 5px solid #141b3a;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-.div-menu {
-    background-color: #ffe177;
-    border-radius: 30px;
-    padding: 20px;
-    text-align: center;
-    border: 5px solid #141b3a;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-p {
-    margin-top: 20px;
-    text-decoration-color: #ffffff;
-    border: solid 5px #141b3a;
-    border-radius: 10px;
-    background-color: #685e68;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+.div-menu {
+    text-align: center;
+    width: 350px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.arm-image {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 20px;
+}
+
+
 input[type="email"],
 input[type="password"],
 input[type="text"],
-input[type="number"]{
-    padding: 5px;
-    border: solid 5px #141b3a;
+input[type="number"] {
+    padding: 10px;
     border-radius: 10px;
-    background-color: #685e68;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border: 1px solid #ccc;
+    background-color: #d0d0d0;
+    color: #333;
+    margin-bottom: 15px;
+    width: calc(100% - 22px);
+    box-sizing: border-box;
 }
 
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: #26bd26;
+    box-shadow: 0 0 5px rgba(38, 189, 38, 0.5);
+}
 a {
     color: #ffffff;
     text-decoration: none;
 }
 
-p:hover {
-    background-color: #3CA6A6;
+
+.profile-body{
+    justify-content: normal;
+    align-items: normal ;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+.container-profile {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    margin-top: 30px;
+    padding: 0;
 }
 
-/* Estilos específicos para o nav */
+.profile-section,
+.training-section {
+    flex: 1;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.profile-section {
+    background-color: #26bd26;
+    color: white;
+}
+
+.training-section {
+    background-color: #ffffff;
+    color: #333;
+}
+
+.buttons-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.buttons-section button {
+    margin: 10px;
+    background-color: #26bd26;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
+}
+
+.buttons-section button:hover {
+    background-color: #45a049;
+}
+
+.profile-section p,
+.training-section p {
+    margin-top: 10px;
+}
+
+.profile-section h2,
+.training-section h2 {
+    margin-bottom: 10px;
+}
+
 nav {
-    position: fixed; /* Fixa o nav na parte superior */
-    top: 0; /* Alinha o nav no topo da janela */
-    width: 100%; /* Define a largura completa */
-    background-color: #685e68; /* Azul bebe */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #f3f8f3;
     padding: 10px 0;
-    text-align: justify;
-    z-index: 1000; /* Garante que o nav esteja acima de outros elementos */
+    z-index: 1000;
 }
 
 nav ul {
@@ -117,11 +239,64 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #ffffff;
+    color: #424141;
     text-decoration: none;
     font-size: 16px;
 }
 
 nav ul li a:hover {
-    color: #FCC560; /* Amarelo */
+    color: #26bd26;
 }
+
+.icon-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    margin-top: 40px;
+}
+
+.icon-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.user-characteristics{
+    text-align: left;
+    margin-left: 35px;
+}
+hr{
+    color: white;
+}
+.label{
+    font-weight: bold;
+
+}
+.name-settings-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-settings {
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+
+}
+.input-form{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #d0d0d0;
+    color: #333;
+    margin-bottom: 15px;
+    width: calc(100% - 22px);
+    box-sizing: border-box;
+}
+
+

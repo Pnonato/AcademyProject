@@ -31,10 +31,10 @@ public class LoginWebController {
         User user = loginUseCase.authenticateUser(email, password);
         if (user != null) {
             session.setAttribute("loggedInUser", user);
-            model.addAttribute("message", "Login Feito!!");
+            model.addAttribute("message", "Login successfully!!");
             return "redirect:/user_profile";
         } else {
-            model.addAttribute("error", "Email ou senha inválidos :c ");
+            model.addAttribute("error", "invalid email or password");
             return "login";
         }
     }

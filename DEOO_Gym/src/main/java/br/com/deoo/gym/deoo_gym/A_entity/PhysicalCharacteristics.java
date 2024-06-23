@@ -1,15 +1,18 @@
 package br.com.deoo.gym.deoo_gym.A_entity;
 
+import br.com.deoo.gym.deoo_gym.A_entity.Enuns.Gender;
+import br.com.deoo.gym.deoo_gym.A_entity.Enuns.PhysicalGoal;
+
 public class PhysicalCharacteristics {
 
     private double weight;
     private double height;
-    private String gender;
+    private Gender gender;
     private int age;
-    private String physicalGoal; // Sugerível enum
+    private PhysicalGoal physicalGoal;
     private double BMI;
 
-    public PhysicalCharacteristics( double weight, double height, String gender, String physicalGoal, double BMI, int age) {
+    public PhysicalCharacteristics( double weight, double height, Gender gender, PhysicalGoal physicalGoal, double BMI, int age) {
         this.weight = weight;
         this.height = height;
         this.gender = gender;
@@ -18,7 +21,7 @@ public class PhysicalCharacteristics {
         this.age = age;
     }
     //construtor temporario sem o bmi
-    public PhysicalCharacteristics( double weight, double height, String gender, String physicalGoal,int age) {
+    public PhysicalCharacteristics( double weight, double height, Gender gender, PhysicalGoal physicalGoal,int age) {
         this.weight = weight;
         this.height = height;
         this.gender = gender;
@@ -32,6 +35,7 @@ public class PhysicalCharacteristics {
     public PhysicalCharacteristics() {
 
     }
+
 
     public int getAge() {
         return age;
@@ -57,19 +61,19 @@ public class PhysicalCharacteristics {
         this.height = height;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
-    public String getPhysicalGoal() {
+    public PhysicalGoal getPhysicalGoal() {
         return physicalGoal;
     }
 
-    public void setPhysicalGoal(String physicalGoal) {
+    public void setPhysicalGoal(PhysicalGoal physicalGoal) {
         this.physicalGoal = physicalGoal;
     }
 

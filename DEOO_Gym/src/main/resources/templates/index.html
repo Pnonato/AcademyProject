@@ -3,20 +3,24 @@
 <head>
     <title>GYM project</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link th:href="@{/favicon.png}" rel="icon" type="image/x-icon"/>
+    <link th:href="@{/images/favicon.png}" rel="icon" type="image/x-icon"/>
     <link th:href="@{/css/styles.css}" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="body-standard">
 <div th:replace="~{header :: nav}"></div>
-<div class="container">
-    <h1 class="h1-title">Bem vindo!</h1>
-    <img src="/logo.png" alt="homem levantando peso !!">
-    <div class="div-menu">
-        <p><a href="/add_user"> criar conta aqui!! </a></p>
-        <p><a href="/login"> fazer login aqui!! </a></p>
-        <p><a href="/add_characteristics"> adicionar caracteristicas aqui !!</a></p>
-        <p><a href="/user_list" > listar usuarios aqui!!</a></p>
+
+    <div class="home-container">
+        <div class="text">
+        <h1 class="poppins-bold">Generate Personalized <br> <span class="green-text">Workouts !!</span></h1>
+        </div>
+        <div class="home-image">
+            <img src="/images/foto_mulher.jpg" alt="mulher correndo">
+
+        </div>
     </div>
-</div>
+
 </body>
 </html>

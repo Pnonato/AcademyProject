@@ -1,50 +1,69 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>User Profile</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link th:href="@{/favicon.png}" rel="icon" type="image/x-icon"/>
+    <link th:href="@{/images/favicon.png}" rel="icon" type="image/x-icon"/>
     <link th:href="@{/css/styles.css}" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="profile-body">
+<div th:replace="~{header :: nav}"></div>
 
+<div class="container-profile">
+    <div class="profile-section">
+        <div th:if="${loggedInUser}" class="profile-info">
+            <div class="icon-container">
+                <img class="icon-user" th:src="@{${loggedInUser.characteristics?.gender != null ? '/images/' + loggedInUser.characteristics.gender + '.png' : '/images/outro.png'}}" alt="icone de usuario"/>
+            </div>
 
-<div class="container">
-    <h1 class="h1-title" >User Profile</h1>
-<div th:if="${loggedInUser}">
-    <p>Name: <span th:text="${loggedInUser.name}"></span></p>
-    <p>Email: <span th:text="${loggedInUser.email}"></span></p>
-    <div th:if="${loggedInUser.characteristics != null}">
-        <p>Weight: <span th:text="${loggedInUser.characteristics.weight}"></span></p>
-        <p>Height: <span th:text="${loggedInUser.characteristics.height}"></span></p>
-        <p>Gender: <span th:text="${loggedInUser.characteristics.gender}"></span></p>
-        <p>Age: <span th:text="${loggedInUser.characteristics.age}"></span></p>
-        <p>Physical Goal: <span th:text="${loggedInUser.characteristics.physicalGoal}"></span></p>
+            <div class="user-details">
+                <div class="name-settings-container">
+                    <h2 class="user-title"><span th:text="${loggedInUser.name}"></span></h2>
+                    <img class="img-settings" src="/images/settings.png" alt="Settings Icon">
+                </div>
+                <p>Email: <span th:text="${loggedInUser.email}"></span></p>
+                <hr>
+                <div class="user-characteristics" th:if="${loggedInUser.characteristics != null}">
+                    <p><span class="label">Weight:</span> <span th:text="${loggedInUser.characteristics.weight}"></span></p>
+                    <p><span class="label">Height:</span> <span th:text="${loggedInUser.characteristics.height}"></span></p>
+                    <p><span class="label">Gender:</span> <span th:text="${loggedInUser.characteristics.gender}"></span></p>
+                    <p><span class="label">Age:</span> <span th:text="${loggedInUser.characteristics.age}"></span></p>
+                    <p><span class="label">Physical Goal:</span> <span th:text="${loggedInUser.characteristics.physicalGoal}"></span></p>
+                </div>
+                <hr>
+                <div th:if="${loggedInUser.characteristics == null}">
+                    <p>No physical characteristics set!!</p>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <div th:if="${loggedInUser.characteristics == null}">
-        <p>No physical characteristics set!!</p>
+
+    <div class="training-section">
+        <div th:if="${loggedInUser.training != null}">
+            <h2>Training</h2>
+            <p>Description: <span th:text="${loggedInUser.training.description}"></span></p>
+        </div>
+
+        <div th:if="${loggedInUser.training == null}">
+            <p>No workout generated.</p>
+        </div>
+
+        <div class="buttons-section">
+            <form action="/generate_training" method="get">
+                <button type="submit">Generate Training</button>
+            </form>
+        </div>
     </div>
 
-    <div th:if="${loggedInUser.training != null}">
-        <h2>Training</h2>
-        <p>Description: <span th:text="${loggedInUser.training.description}"></span></p>
+    <div th:unless="${loggedInUser}" class="profile-section">
+        <p>You are not logged in!</p>
+        <p><a href="/login">Login here</a></p>
     </div>
-    <div th:if="${loggedInUser.training == null}">
-        <p>No workout generated.</p>
-    </div>
-
-    <form action ="/add_characteristics" method="get">
-        <button type="submit">Add Characteristics </button>
-    </form>
-
-    <form action="/generate_training" method="get">
-        <button type="submit">Generate training</button>
-    </form>
-
 </div>
-<div th:unless="${loggedInUser}">
-    <p>You are not logged in!</p>
-</div>
-</div>
+
 </body>
 </html>
